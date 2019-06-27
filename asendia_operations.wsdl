@@ -1,0 +1,168 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://tempuri.org/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:i0="http://centiro.com/facade/tmsBasic/1/0/servicecontract" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" name="TMSBasic" targetNamespace="http://tempuri.org/">
+  <wsdl:import namespace="http://centiro.com/facade/tmsBasic/1/0/servicecontract" location="http://uat.centiro.com/Universe.Services/TMSBasic/Wcf/c1/i1/TMSBasic/TMSBasic.svc?wsdl=wsdl0"/>
+  <wsdl:types/>
+  <wsdl:binding name="BasicHttpBinding_ITMSBasic" type="i0:ITMSBasic">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="AddShipment">
+      <soap:operation soapAction="http://centiro.com/facade/tmsBasic/1/0/servicecontract/ITMSBasic/AddShipment" style="document"/>
+      <wsdl:input name="AddShipmentRequestMessage">
+        <soap:header message="i0:AddShipmentRequestMessage_Headers" part="AuthenticationTicket" use="literal"/>
+        <soap:header message="i0:AddShipmentRequestMessage_Headers" part="MessageId" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="AddShipmentResponseMessage">
+        <soap:header message="i0:AddShipmentResponseMessage_Headers" part="ErrorMessages" use="literal"/>
+        <soap:header message="i0:AddShipmentResponseMessage_Headers" part="Success" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMasterShipment">
+      <soap:operation soapAction="http://centiro.com/facade/tmsBasic/1/0/servicecontract/ITMSBasic/AddMasterShipment" style="document"/>
+      <wsdl:input name="AddMasterShipmentRequestMessage">
+        <soap:header message="i0:AddMasterShipmentRequestMessage_Headers" part="AuthenticationTicket" use="literal"/>
+        <soap:header message="i0:AddMasterShipmentRequestMessage_Headers" part="MessageId" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="AddMasterShipmentResponseMessage">
+        <soap:header message="i0:AddMasterShipmentResponseMessage_Headers" part="ErrorMessages" use="literal"/>
+        <soap:header message="i0:AddMasterShipmentResponseMessage_Headers" part="Success" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelShipment">
+      <soap:operation soapAction="http://centiro.com/facade/tmsBasic/1/0/servicecontract/ITMSBasic/CancelShipment" style="document"/>
+      <wsdl:input name="CancelShipmentRequestMessage">
+        <soap:header message="i0:CancelShipmentRequestMessage_Headers" part="AuthenticationTicket" use="literal"/>
+        <soap:header message="i0:CancelShipmentRequestMessage_Headers" part="MessageId" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CancelShipmentResponseMessage">
+        <soap:header message="i0:CancelShipmentResponseMessage_Headers" part="ErrorMessages" use="literal"/>
+        <soap:header message="i0:CancelShipmentResponseMessage_Headers" part="Success" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteParcel">
+      <soap:operation soapAction="http://centiro.com/facade/tmsBasic/1/0/servicecontract/ITMSBasic/DeleteParcel" style="document"/>
+      <wsdl:input name="DeleteParcelRequestMessage">
+        <soap:header message="i0:DeleteParcelRequestMessage_Headers" part="AuthenticationTicket" use="literal"/>
+        <soap:header message="i0:DeleteParcelRequestMessage_Headers" part="MessageId" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="DeleteParcelResponseMessage">
+        <soap:header message="i0:DeleteParcelResponseMessage_Headers" part="ErrorMessages" use="literal"/>
+        <soap:header message="i0:DeleteParcelResponseMessage_Headers" part="Success" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAndPrintParcels">
+      <soap:operation soapAction="http://centiro.com/facade/tmsBasic/1/0/servicecontract/ITMSBasic/AddAndPrintParcels" style="document"/>
+      <wsdl:input name="AddAndPrintParcelsRequestMessage">
+        <soap:header message="i0:AddAndPrintParcelsRequestMessage_Headers" part="AuthenticationTicket" use="literal"/>
+        <soap:header message="i0:AddAndPrintParcelsRequestMessage_Headers" part="MessageId" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="AddAndPrintParcelsResponseMessage">
+        <soap:header message="i0:AddAndPrintParcelsResponseMessage_Headers" part="ErrorMessages" use="literal"/>
+        <soap:header message="i0:AddAndPrintParcelsResponseMessage_Headers" part="Success" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseShipments">
+      <soap:operation soapAction="http://centiro.com/facade/tmsBasic/1/0/servicecontract/ITMSBasic/CloseShipments" style="document"/>
+      <wsdl:input name="CloseShipmentsRequestMessage">
+        <soap:header message="i0:CloseShipmentsRequestMessage_Headers" part="AuthenticationTicket" use="literal"/>
+        <soap:header message="i0:CloseShipmentsRequestMessage_Headers" part="MessageId" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CloseShipmentsResponseMessage">
+        <soap:header message="i0:CloseShipmentsResponseMessage_Headers" part="ErrorMessages" use="literal"/>
+        <soap:header message="i0:CloseShipmentsResponseMessage_Headers" part="Success" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseAndUpdateShipments">
+      <soap:operation soapAction="http://centiro.com/facade/tmsBasic/1/0/servicecontract/ITMSBasic/CloseAndUpdateShipments" style="document"/>
+      <wsdl:input name="CloseAndUpdateShipmentsRequestMessage">
+        <soap:header message="i0:CloseAndUpdateShipmentsRequestMessage_Headers" part="AuthenticationTicket" use="literal"/>
+        <soap:header message="i0:CloseAndUpdateShipmentsRequestMessage_Headers" part="MessageId" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CloseAndUpdateShipmentsResponseMessage">
+        <soap:header message="i0:CloseAndUpdateShipmentsResponseMessage_Headers" part="ErrorMessages" use="literal"/>
+        <soap:header message="i0:CloseAndUpdateShipmentsResponseMessage_Headers" part="Success" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintParcels">
+      <soap:operation soapAction="http://centiro.com/facade/tmsBasic/1/0/servicecontract/ITMSBasic/PrintParcels" style="document"/>
+      <wsdl:input name="PrintParcelsRequestMessage">
+        <soap:header message="i0:PrintParcelsRequestMessage_Headers" part="AuthenticationTicket" use="literal"/>
+        <soap:header message="i0:PrintParcelsRequestMessage_Headers" part="MessageId" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PrintParcelsResponseMessage">
+        <soap:header message="i0:PrintParcelsResponseMessage_Headers" part="ErrorMessages" use="literal"/>
+        <soap:header message="i0:PrintParcelsResponseMessage_Headers" part="Success" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipmentDocuments">
+      <soap:operation soapAction="http://centiro.com/facade/tmsBasic/1/0/servicecontract/ITMSBasic/GetShipmentDocuments" style="document"/>
+      <wsdl:input name="GetShipmentDocumentsRequestMessage">
+        <soap:header message="i0:GetShipmentDocumentsRequestMessage_Headers" part="AuthenticationTicket" use="literal"/>
+        <soap:header message="i0:GetShipmentDocumentsRequestMessage_Headers" part="MessageId" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetShipmentDocumentsResponseMessage">
+        <soap:header message="i0:GetShipmentDocumentsResponseMessage_Headers" part="ErrorMessages" use="literal"/>
+        <soap:header message="i0:GetShipmentDocumentsResponseMessage_Headers" part="Success" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadPrintShipmentBatch">
+      <soap:operation soapAction="http://centiro.com/facade/tmsBasic/1/0/servicecontract/ITMSBasic/UploadPrintShipmentBatch" style="document"/>
+      <wsdl:input name="UploadPrintShipmentBatchRequestMessage">
+        <soap:header message="i0:UploadPrintShipmentBatchRequestMessage_Headers" part="AuthenticationTicket" use="literal"/>
+        <soap:header message="i0:UploadPrintShipmentBatchRequestMessage_Headers" part="MessageId" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UploadPrintShipmentBatchResponseMessage">
+        <soap:header message="i0:UploadPrintShipmentBatchResponseMessage_Headers" part="ErrorMessages" use="literal"/>
+        <soap:header message="i0:UploadPrintShipmentBatchResponseMessage_Headers" part="Success" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAndPrintShipment">
+      <soap:operation soapAction="http://centiro.com/facade/tmsBasic/1/0/servicecontract/ITMSBasic/AddAndPrintShipment" style="document"/>
+      <wsdl:input name="AddAndPrintShipmentRequestMessage">
+        <soap:header message="i0:AddAndPrintShipmentRequestMessage_Headers" part="AuthenticationTicket" use="literal"/>
+        <soap:header message="i0:AddAndPrintShipmentRequestMessage_Headers" part="MessageId" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="AddAndPrintShipmentResponseMessage">
+        <soap:header message="i0:AddAndPrintShipmentResponseMessage_Headers" part="ErrorMessages" use="literal"/>
+        <soap:header message="i0:AddAndPrintShipmentResponseMessage_Headers" part="Success" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEvent">
+      <soap:operation soapAction="http://centiro.com/facade/tmsBasic/1/0/servicecontract/ITMSBasic/AddEvent" style="document"/>
+      <wsdl:input name="AddEventRequestMessage2">
+        <soap:header message="i0:AddEventRequestMessage2_Headers" part="AuthenticationTicket" use="literal"/>
+        <soap:header message="i0:AddEventRequestMessage2_Headers" part="MessageId" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="AddEventResponseMessage">
+        <soap:header message="i0:AddEventResponseMessage_Headers" part="ErrorMessages" use="literal"/>
+        <soap:header message="i0:AddEventResponseMessage_Headers" part="Success" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TMSBasic">
+    <wsdl:port name="BasicHttpBinding_ITMSBasic" binding="tns:BasicHttpBinding_ITMSBasic">
+      <soap:address location="http://uat.centiro.com/Universe.Services/TMSBasic/Wcf/c1/i1/TMSBasic/TMSBasic.svc/xml"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

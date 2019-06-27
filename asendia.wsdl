@@ -1,0 +1,24 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://tempuri.org/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:i0="http://centiro.com/facade/shared/1/0/servicecontract" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" name="SharedOperations" targetNamespace="http://tempuri.org/">
+  <wsdl:import namespace="http://centiro.com/facade/shared/1/0/servicecontract" location="http://uat.centiro.com/Universe.Services/TMSBasic/Wcf/c1/i1/TMSBasic/Authenticate.svc?wsdl=wsdl0"/>
+  <wsdl:types/>
+  <wsdl:binding name="BasicHttpBinding_ISharedOperations" type="i0:ISharedOperations">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://centiro.com/facade/shared/1/0/servicecontract/ISharedOperations/Authenticate" style="document"/>
+      <wsdl:input name="AuthenticateRequestMessage">
+        <soap:header message="i0:AuthenticateRequestMessage_Headers" part="MessageId" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="AuthenticateResponseMessage">
+        <soap:header message="i0:AuthenticateResponseMessage_Headers" part="ErrorMessages" use="literal"/>
+        <soap:header message="i0:AuthenticateResponseMessage_Headers" part="Success" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SharedOperations">
+    <wsdl:port name="BasicHttpBinding_ISharedOperations" binding="tns:BasicHttpBinding_ISharedOperations">
+      <soap:address location="http://uat.centiro.com/Universe.Services/TMSBasic/Wcf/c1/i1/TMSBasic/Authenticate.svc/xml"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
