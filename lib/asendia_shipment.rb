@@ -1,6 +1,4 @@
 require "asendia_shipment/version"
-
-module AsendiaShipment
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require "asendia_shipment/encoder"
+require "asendia_shipment/client"
+require "asendia_shipment/requester"
