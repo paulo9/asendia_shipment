@@ -15,91 +15,95 @@ module Encoder
     xml
   end
 
-  def encode_shipment
-    shipment = {
-      add_and_print_shipment_request:{
-        label_type: "PDF" ,
-        currency: "",
-        mode_of_transport: "ACSS",
-        order_number: "",
-        parcels: {
-          parcel: {
-            height: "",
-            lenght: "",
-            order_lines: {
-              order_line: {
-                country_origin: "",
-                currency: "",
-                description_1: "",
-                harmonization_code: "",
-                product_number: "",
-                quantity_shipped: "",
-                unit_of_measure: "",
-                unit_price: "",
-                unit_weight: "",
-                volume: "",
-                weight: ""
-              }
-            },
-            parcel_identifier: "",
-            type_of_goods: "",
-            type_of_package: "",
-            value: "",
-            weight: "",
-            width: "",
-          }
+  def encode_shipment(shipment)
+    encoded_hash = {
+      AddAndPrintShipmentRequest:{
+        LabelType: "PDF" ,
+        Currency: shipment[:currency],
+        ModeOfTransport: shipment[:mode_of_transport],
+        OrderNumber: shipment[:order_number],
+        Attributes: {
+          Attribute: []
         },
-        sender_code: "",
-        ship_date: "",
-        shipment_identifier: "",
-        shipment_type: "",
-        terms_of_delivery: "",
-        value: "",
-        weight: ""
-      }
-    }
-
-
-    set_address(shipment)
-    set_attributes(shipment)
-    shipment
-  end
-
-  def set_address(shipment)
-    shipment_address = {
-      shipment: {
-        addresses: {
-          address: {
-            address_1: "",
-            address_type: "",
-            cell_phone: "",
-            city: "",
-            contact: "",
-            email: "",
-            iso_country: "",
-            phone: "",
-            zip_code: ""
+        Parcels: {
+          Parcel: {
+            Height: shipment[:parcel][:height],
+            Length: shipment[:parcel][:lenght],
+            SenderCode: shipment[:parcel][:sender_code],
+            ShipDate: shipment[:parcel][:ship_date],
+            ShipmentIdentifier: shipment[:parcel][:shipment_identifier],
+            ShipmentType: shipment[:parcel][:shipment_type],
+            Value: shipment[:parcel][:value],
+            TermsOfDelivery: shipment[:parcel][:terms_of_delivery],
+            Weight: shipment[:parcel][:weight],
+            OrderLines: {
+              OrderLine: []
+            }
           }
         }
       }
     }
 
-    shipment[:add_and_print_shipment_request].merge!(shipment_address)
 
-    shipment
+    set_address(encoded_hash, shipment[:shipping_address])
+    set_attributes(encoded_hash, shipment[:attributes])
+    set_order_lines(encoded_hash, shipment[:parcel][:items])
+
+    encoded_hash
   end
 
-  def set_attributes(shipment)
-    shipment[:add_and_print_shipment_request].merge!({attributes: []})
+  def set_address(encoded_hash, address)
+    shipment_address = {
+      Shipment: {
+        Addresses: {
+          Address: {
+            Address1: address[:address_1],
+            AddressType: address[:address_type],
+            CellPhone: address[:cell_phone],
+            City: address[:city],
+            Contact: address[:contact],
+            Email: address[:email],
+            ISOCountry: address[:iso_country],
+            Name: address[:name],
+            Phone: address[:phone],
+            ZipCode: address[:zip_code]
+          }
+        }
+      }
+    }
 
-    shipment[:add_and_print_shipment_request][:attributes] << { attribute: {code: "OriginSub", value: "NL"}}
-    shipment[:add_and_print_shipment_request][:attributes] << { attribute: {code: "CRMIMD", value: ""}}
-    shipment[:add_and_print_shipment_request][:attributes] << { attribute: {code: "Product", value: ""}}
-    shipment[:add_and_print_shipment_request][:attributes] << { attribute: {code: "Service", value: ""}}
-    shipment[:add_and_print_shipment_request][:attributes] << { attribute: {code: "AdditionalService", value: ""}}
-    shipment[:add_and_print_shipment_request][:attributes] << { attribute: {code: "Format", value: ""}}
+    encoded_hash[:AddAndPrintShipmentRequest].merge!(shipment_address)
 
-    shipment
+    encoded_hash
+  end
+
+  def set_attributes(encoded_hash, attributes)
+    attributes.each do |attribute|
+      encoded_hash[:AddAndPrintShipmentRequest][:Attributes][:Attribute] << {Code: attribute[:code], Value: attribute[:value]}
+    end
+
+    encoded_hash
+  end
+
+  def set_order_lines(encoded_hash, items)
+    items.each do |item|
+      line = {
+        CountryOfOrigin: item[:country_of_origin],
+        Currency: item[:currency],
+        Description1: item[:description],
+        HarmonizationCode: item[:harmonization_code],
+        ProductNumber: item[:product_number],
+        QuantityShipped: item[:quantity_shipped],
+        UnitOfMeasure: item[:unit_of_measure],
+        UnitPrice: item[:unit_price],
+        UnitWeight: item[:unit_weight],
+        Volume: item[:volume],
+        Weight: item[:weight]
+      }
+      encoded_hash[:AddAndPrintShipmentRequest][:Parcels][:Parcel][:OrderLines][:OrderLine] << line
+    end
+
+    encoded_hash
   end
 
 end
