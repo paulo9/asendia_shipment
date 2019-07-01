@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["paulo0_0cesar@hotmail.com"]
 
   spec.summary       = %q{Shipment SDK for Asendia.}
-  spec.description   = %q{Shipment SDK for Asendia.}
-  spec.homepage      = ""
+  spec.description   = %q{SDK for Asendia.}
+  spec.homepage      = "https://github.com/paulo9/asendia_shipment"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -38,8 +38,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.0"
-  spec.add_development_dependency "byebug"
-  spec.add_development_dependency "savon"
+  spec.add_development_dependency "byebug", "~> 9.0"
+  spec.add_development_dependency "savon", "~> 2.12"
 
-  spec.add_runtime_dependency "savon"
+  spec.add_runtime_dependency "savon", "~> 2.12"
 end
