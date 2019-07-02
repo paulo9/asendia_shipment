@@ -20,8 +20,6 @@
         <ns2:OrderNumber></ns2:OrderNumber>
         <ns2:Parcels>
           <ns2:Parcel>
-            <ns2:Height></ns2:Height>
-            <ns2:Length></ns2:Length>
             <ns2:OrderLines>
             </ns2:OrderLines>
             <ns2:ParcelIdentifier></ns2:ParcelIdentifier>
@@ -37,8 +35,6 @@
         <ns2:ShipmentIdentifier></ns2:ShipmentIdentifier>
         <ns2:ShipmentType></ns2:ShipmentType>
         <ns2:TermsOfDelivery></ns2:TermsOfDelivery>
-        <ns2:Value></ns2:Value>
-        <ns2:Weight></ns2:Weight>
       </ns1:Shipment>
     </ns1:AddAndPrintShipmentRequest>
   </SOAP-ENV:Body>
