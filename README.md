@@ -22,7 +22,100 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+First step for Asendia Shipment usage is get your ticket auth:
+
+    AsendiaShipment::Requester.new.request_ticket_auth(user, pass)
+
+Second ster is create your shipment
+    create a shipment structure like this:
+
+    shipment = {
+      ticket: "#{TICKET_AUTH}",
+      mode_of_transport: "ACSS",
+      order_number: "ORD0000005",
+      sender_code: "#{SENDER_CODE}",
+      shipment_type: "OUTB",
+      terms_of_delivery: "DDP",
+      shipment_identifier: "SHIP005",
+      ship_date: "2018-06-20T17:12:47",
+      parcel_identifier: "PRCID005",
+      type_of_goods: "Goods",
+      type_of_package: "Small packet",
+      currency: "EUR",
+      value: "110",
+      weight: "1.1",
+      shipping_address: {
+        address_1: "VIALE DI FOCENE 153",
+        address_type: "Receiver",
+        cell_phone: "+41123456780",
+        city: " FIUMICINO",
+        contact: "Thomas Baer",
+        email: "tbaer@yahoo.ch",
+        iso_country: "IT",
+        name: "FEDERICO BERGO",
+        phone: "+41123456789",
+        zip_code: "00054"
+      },
+      attributes: [
+        {
+          code: "OriginSub",
+          value: "NL"
+        },
+        {
+          code: "CRMID",
+          value: "NL16090001",
+        },
+        {
+          code: "Product",
+          value: "FTG",
+        },
+        {
+          code: "Service",
+          value: "MBD",
+        },
+        {
+          code: "AdditionalService",
+          value: "",
+        },
+        {
+          code: "Format",
+          value: "B",
+        },
+      ],
+      parcel: {
+        items: [
+          {
+            country_of_origin: "NL",
+            currency: "EUR",
+            description: "Blue Watch",
+            harmonization_code: "910310",
+            product_number: "WBLUE1234",
+            quantity_shipped: "2",
+            unit_of_measure: "EA",
+            unit_price: "10",
+            unit_weight: "0.1",
+            volume: "0",
+            weight: "0.2"
+          },
+          {
+            country_of_origin: "NL",
+            currency: "EUR",
+            description: "Blue Watch",
+            harmonization_code: "910310",
+            product_number: "WBLUE1234",
+            quantity_shipped: "3",
+            unit_of_measure: "EA",
+            unit_price: "30",
+            unit_weight: "0.3",
+            volume: "0",
+            weight: "0.9"
+          }
+        ]
+      }
+    }
+
+  Expected response
+    {:success=>true, :track_code=>"LS928037019CH", :pdf_encoded=>"base64data"}
 
 ## Development
 
