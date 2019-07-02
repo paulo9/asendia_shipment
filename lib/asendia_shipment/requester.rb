@@ -1,4 +1,3 @@
-require 'byebug'
 module AsendiaShipment
   class Requester
     include Encoder
@@ -24,9 +23,15 @@ module AsendiaShipment
 
     def request_label(shipment)
       client = Client.get_client('operations')
-      encoded_shipment = encode_shipment(shipment)
-      byebug
-      client.call(:add_and_print_shipment, message: encoded_shipment, soap_header: {'ns3:AuthenticationTicket': shipment[:ticket]})
+      begin
+        encoded_shipment = encode_shipment(shipment)
+        resp = client.call(:add_and_print_shipment, xml: encoded_shipment.to_xml)
+        track_code = resp.body[:add_and_print_shipment_response][:shipments][:sequence_number]
+        base_64_pdf = resp.body[:add_and_print_shipment_response][:parcel_documents][:parcel_document][:content]
+        { success: true, track_code: track_code, pdf_encoded: base_64_pdf }
+      rescue Savon::Error => e
+        { success: false, errors: e }
+      end
     end
 
   end
