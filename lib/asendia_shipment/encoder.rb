@@ -17,7 +17,7 @@ module Encoder
   end
 
   def encode_shipment(shipment)
-    path = File.join(File.dirname(File.dirname(File.absolute_path(__FILE__))),'asendia_shipment/lib/assets/print_request.xml')
+    path = File.join(File.dirname(File.dirname(File.absolute_path(__FILE__))),'assets/print_request.xml')
     encoded_xml = Nokogiri::XML(File.read(path))
 
     encoded_xml.xpath('//ns3:AuthenticationTicket')[0].content = shipment[:ticket]
