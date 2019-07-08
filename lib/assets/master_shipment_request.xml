@@ -1,0 +1,41 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:dat="http://centiro.com/facade/shared/1/0/datacontract"
+  xmlns:ser="http://centiro.com/facade/tmsBasic/1/0/servicecontract"
+  xmlns:cen="http://schemas.datacontract.org/2004/07/Centiro.Facade.TMSBasic.Contract.c1.i1.TMSBasic.Base
+  Types.DTO" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+  <soapenv:Header>
+    <dat:MessageId></dat:MessageId>
+    <dat:AuthenticationTicket></dat:AuthenticationTicket>
+    </soapenv:Header>
+    <soapenv:Body>
+      <ser:AddMasterShipmentRequest>
+        <ser:LabelType>PDF</ser:LabelType>
+        <ser:MasterShipment>
+          <cen:Addresses>
+            <cen:Address>
+              <cen:Address1></cen:Address1>
+              <cen:AddressType></cen:AddressType>
+              <cen:City></cen:City>
+              <cen:Contact></cen:Contact>
+              <cen:Email></cen:Email>
+              <cen:ISOCountry></cen:ISOCountry>
+              <cen:Name></cen:Name>
+              <cen:ZipCode></cen:ZipCode>
+            </cen:Address>
+          </cen:Addresses>
+          <cen:ChildShipmentIdentifiers>
+            <!--Zero or more repetitions:-->
+           <!--  <arr:string>UY000003829CH</arr:string>
+            <arr:string>12197103340036</arr:string>
+            <arr:string>UY000003727CH</arr:string> -->
+          </cen:ChildShipmentIdentifiers>
+          <cen:ModeOfTransport></cen:ModeOfTransport>
+          <cen:OrderNumber></cen:OrderNumber>
+          <cen:SenderCode></cen:SenderCode>
+          <cen:ShipDate></cen:ShipDate>
+          <cen:ShipmentIdentifier></cen:ShipmentIdentifier>
+          <cen:Value></cen:Value>
+        </ser:MasterShipment>
+      </ser:AddMasterShipmentRequest>
+    </soapenv:Body>
+  </soapenv:Envelope>
