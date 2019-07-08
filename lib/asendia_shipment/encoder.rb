@@ -17,7 +17,7 @@ module Encoder
   end
 
   def encode_shipment(shipment)
-    encoded_xml = Nokogiri::XML(File.read(File.expand_path('lib/assets/print_request.xml')))
+    encoded_xml = Nokogiri::XML(File.read(File.join('lib/assets/print_request.xml')))
 
     encoded_xml.xpath('//ns3:AuthenticationTicket')[0].content = shipment[:ticket]
     encoded_xml.xpath('//ns2:Parcel//ns2:ParcelIdentifier')[0].content = shipment[:parcel_identifier]
