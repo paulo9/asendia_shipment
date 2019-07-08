@@ -1,6 +1,8 @@
 module AsendiaShipment::Client
   def self.get_client(type)
-    wsdl = type == "auth" ? "asendia.wsdl" : "asendia_operations.wsdl"
+    file = type == "auth" ? "../assets/asendia.wsdl" : "../assets/asendia_operations.wsdl"
+    wsdl = File.join( File.dirname(__FILE__), file)
+
     namespaces = {
       "xmlns:SOAP-ENV" => "http://schemas.xmlsoap.org/soap/envelope/",
       "xmlns:ns1" => "http://centiro.com/facade/tmsBasic/1/0/servicecontract",
