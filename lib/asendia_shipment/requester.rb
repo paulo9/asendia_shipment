@@ -23,12 +23,17 @@ module AsendiaShipment
 
     def request_label(shipment)
       client = Client.get_client('operations')
+
       begin
         encoded_shipment = encode_shipment(shipment)
         resp = client.call(:add_and_print_shipment, xml: encoded_shipment.to_xml)
-        track_code = resp.body[:add_and_print_shipment_response][:shipments][:sequence_number]
-        base_64_pdf = resp.body[:add_and_print_shipment_response][:parcel_documents][:parcel_document][:content]
-        { success: true, track_code: track_code, pdf_encoded: base_64_pdf }
+        if !resp.body[:add_and_print_shipment_response][:shipments].nil?
+          track_code = resp.body[:add_and_print_shipment_response][:shipments][:sequence_number]
+          base_64_pdf = resp.body[:add_and_print_shipment_response][:parcel_documents][:parcel_document][:content]
+          { success: true, track_code: track_code, pdf_encoded: base_64_pdf }
+        else
+          { success: false, errors: resp.header[:error_messages][:string]}
+        end
       rescue Savon::Error => e
         { success: false, errors: e }
       end

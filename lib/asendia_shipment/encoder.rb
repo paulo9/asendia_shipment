@@ -40,7 +40,6 @@ module Encoder
                           <ns2:Address1>#{address[:address_1]}</ns2:Address1>
                           <ns2:Address2>#{address[:address_2]}</ns2:Address2>
                           <ns2:Address3>#{address[:address_3]}</ns2:Address3>
-                          <ns2:State>#{address[:state]}</ns2:State>
                           <ns2:AddressType>#{address[:address_type]}</ns2:AddressType>
                           <ns2:CellPhone>#{address[:cell_phone]}</ns2:CellPhone>
                           <ns2:City>#{address[:city]}</ns2:City>
